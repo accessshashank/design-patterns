@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace design_patterns
+namespace design_patterns.Adapter
 {
-    class Client
+    class Adapter
     {
         public static void Main(string[] args)
         {
@@ -15,21 +15,38 @@ namespace design_patterns
             // via ITarget ONLY remember via ITarget ONLY
 
             //Client code
-            ITarget target = new Adapter(new Adaptee());
+            ITarget target = new ClientAdapter(new Adaptee());
+            Client c = new Client(target);
+            c.Execute();
+        }
+    }
+
+    public class Client
+    {
+        private ITarget target;
+        public Client(ITarget target)
+        {
+            this.target = target;
+        }
+
+        public void Execute()
+        {
             target.Request();
         }
     }
+
+
 
     public interface ITarget
     {
         void Request();
     }
 
-    public class Adapter : ITarget
+    public class ClientAdapter : ITarget
     {
         private IAdaptee adaptee;
 
-        public Adapter(IAdaptee adaptee)
+        public ClientAdapter(IAdaptee adaptee)
         {
             this.adaptee = adaptee;
         }
