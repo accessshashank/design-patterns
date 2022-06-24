@@ -88,7 +88,7 @@ namespace design_patterns.Decorator
         }
     }
 
-    public class PizzaDecorator : Pizza
+    public abstract class PizzaDecorator : Pizza
     {
         protected Pizza pizza;
         public PizzaDecorator(Pizza pizza)
@@ -96,15 +96,8 @@ namespace design_patterns.Decorator
             this.pizza = pizza;
         }
 
-        public override int CalculateCost()
-        {
-            return this.pizza.CalculateCost();
-        }
-
-        public override string GetDescription()
-        {
-            return this.pizza.GetDescription();
-        }
+        public override abstract string GetDescription();
+        public override abstract int CalculateCost();
     }
 
     public class Cheese : PizzaDecorator
