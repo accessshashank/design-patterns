@@ -13,7 +13,7 @@ namespace design_patterns.Decorator
             /*
              * Pizza is a component which has 3 concrete components LargePizza, MediumPizza and SmallPizza
              * We want to decorate Pizza with toppings namely Cheese and Ham
-             * PizzaDecorator class extends Pizza and also contains Pizza
+             * PizzaDecorator is an abstract class extends Pizza and also contains Pizza
              * ConcreteDecorators or toppings of Pizza (Cheese, Ham) extends PizzaDecorator
              * Note Pizza must be abstract class, When i declared interface there were some issues. Will see later what was the issue
              */
